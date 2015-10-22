@@ -1,6 +1,6 @@
-(ns closure-sandbox.core-test
+(ns closure-sandbox.problem1-test
   (:require [clojure.test :refer :all]
-            [closure-sandbox.core :refer :all]))
+            [closure-sandbox.problem1 :refer :all]))
 
 (deftest is-multiple-of-test
   (testing "checking is-multiple"

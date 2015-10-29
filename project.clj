@@ -9,4 +9,6 @@
   ]
   :main ^:skip-aot closure-sandbox.core
   :target-path "target/%s"
-  :profiles {:uberjar {:aot :all}})
+  :profiles {:uberjar {:aot :all}}
+  :jvm-opts ["-Xmx4G"] 
+)

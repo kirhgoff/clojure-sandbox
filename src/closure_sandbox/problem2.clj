@@ -1,4 +1,4 @@
-(ns closure-sandbox.problem2
+(ns closure-sandbox.core
   (:gen-class))
 
 ;; Each new term in the Fibonacci sequence is generated 

@@ -1,4 +1,4 @@
-(ns closure-sandbox.problem3
+(ns closure-sandbox.core
   (:gen-class)
   (import java.lang.Math)
   (:require [clojure.math.numeric-tower :as math]))
@@ -45,20 +45,23 @@
 
 ;; Fermi method
 (defn fermi-divisors [jobs divisors]
+  ;;(println (str "Running jobs=" jobs " divisors=" divisors))
   (if (empty? jobs) 
     (println (str "Divisors are " (sort divisors)))
     (do (def n (first jobs))
       (def m (math/floor (math/sqrt n)))
+      (println (str "Running n=" n ", m=" m))
       (if (is-prime? n) 
         (fermi-divisors (rest jobs) (cons n divisors))
         (loop [x 1]
           (def q (- (math/expt (+ m x) 2) n)) ;;q(x) = (m + x)^2 - n
           (def sqrt-q (math/sqrt q))
-          ;;(println (str "Iteration " x " q=" q " sqrt(q)=" sqrt-q))
+          (println (str "Iteration " x " q=" q " sqrt(q)=" sqrt-q))
           (if (= (math/floor sqrt-q) sqrt-q) 
             (do (def mx (+ m x))
               (def div1 (int (+ mx sqrt-q)))
               (def div2 (int (- mx sqrt-q)))
+              (println (str "Found divisors " div1 " * " div2))
               (fermi-divisors (concat [div1 div2] (rest jobs)) divisors)
             )
             (recur (inc x)) 
@@ -76,6 +79,7 @@
 ;;Found divisors: 1234169.0 * 486847.0
 ;;(defn solution [] (fermi-divisors 600851475143))
 ;;600851475143 = 1234169 * 486847 = 1471 * 839 * 6857 * 71
+;;(defn solution [] (fermi-divisors [998001] []))
 (defn solution [] (fermi-divisors [600851475143] []))
 
 

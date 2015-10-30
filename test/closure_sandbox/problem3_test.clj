@@ -1,4 +1,4 @@
-(ns closure-sandbox.problem3-test
+(ns closure-sandbox.core
   (:require [clojure.test :refer :all]
             [closure-sandbox.problem3 :refer :all]))
 

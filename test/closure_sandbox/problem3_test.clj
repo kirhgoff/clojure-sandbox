@@ -1,4 +1,4 @@
-(in-ns closure-sandbox.core
+(ns closure-sandbox.core-test
   (:require [clojure.test :refer :all]))
 
 (deftest basic-tests

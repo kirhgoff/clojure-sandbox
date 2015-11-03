@@ -1,7 +1,7 @@
-(ns closure-sandbox.ttt
+(ns closure-sandbox.core-test
   (:require [clojure.test :refer :all]))
 
-(deftest is-multiple-of-test ^:default
+(deftest is-multiple-of-test
   (testing "checking is-multiple"
     (is (= true (is-multiple-of 3 3)))
     (is (= true (is-multiple-of 6 3)))

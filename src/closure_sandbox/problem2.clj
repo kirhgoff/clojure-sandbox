@@ -1,5 +1,4 @@
-(ns closure-sandbox.core
-  (:gen-class))
+(in-ns 'closure-sandbox.core)
 
 ;; Each new term in the Fibonacci sequence is generated 
 ;; by adding the previous two terms. By starting with 1 and 2, 
@@ -19,7 +18,7 @@
   (reduce + (even-limited-fibonacci limit))
 )
 
-(defn solution [limit] 
+(defn solution2 [limit] 
   (println "Sum of even-valued fibonacci numbers limited by " limit " is "
     (sum-even-limited-fibonacci limit))
 )

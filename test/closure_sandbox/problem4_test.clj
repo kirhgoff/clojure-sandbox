@@ -1,6 +1,5 @@
-(ns closure-sandbox.problem4
-  (:require [clojure.test :refer :all]
-            [closure-sandbox.problem4 :refer :all]))
+(in-ns closure-sandbox.core
+  (:require [clojure.test :refer :all]))
 
 (deftest problem4
   (testing "digits"

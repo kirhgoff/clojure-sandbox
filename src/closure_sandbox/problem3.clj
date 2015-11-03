@@ -1,7 +1,4 @@
-(ns closure-sandbox.core
-  (:gen-class)
-  (import java.lang.Math)
-  (:require [clojure.math.numeric-tower :as math]))
+(in-ns 'closure-sandbox.core)
 
 ;; The prime factors of 13195 are 5, 7, 13 and 29.
 ;; What is the largest prime factor of the number 600851475143 ?
@@ -80,7 +77,7 @@
 ;;(defn solution [] (fermi-divisors 600851475143))
 ;;600851475143 = 1234169 * 486847 = 1471 * 839 * 6857 * 71
 ;;(defn solution [] (fermi-divisors [998001] []))
-(defn solution [] (fermi-divisors [600851475143] []))
+(defn solution3 [] (fermi-divisors [600851475143] []))
 
 
 

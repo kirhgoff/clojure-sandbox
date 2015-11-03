@@ -1,8 +1,4 @@
-(ns clojure-sandbox.problem4
-  (import java.io.File)
-  (import java.awt.Color)
-  (import java.awt.image.BufferedImage)
-  (import javax.imageio.ImageIO))
+(in-ns 'closure-sandbox.core)
 
 (defn digits [number] 
   (cons (mod number 10) (lazy-seq (digits (quot number 10)))))
@@ -24,5 +20,5 @@
         (.drawLine g x y x y))
       (ImageIO/write bi "png" (File. file)))))
 
-(defn solution [x] 
+(defn solution4 [x] 
   (println "Nothing"))

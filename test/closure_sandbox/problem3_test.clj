@@ -1,6 +1,5 @@
-(ns closure-sandbox.core
-  (:require [clojure.test :refer :all]
-            [closure-sandbox.problem3 :refer :all]))
+(in-ns closure-sandbox.core
+  (:require [clojure.test :refer :all]))
 
 (deftest basic-tests
   (is (= 2 (ceil-sqrt 4)))

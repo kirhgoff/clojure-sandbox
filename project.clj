@@ -11,5 +11,5 @@
   :target-path "target/%s"
   :test-paths ["test"]  
   :profiles {:uberjar {:aot :all}}
-  :jvm-opts ["-Xmx4G"] 
+  :jvm-opts ["-Xmx4G" "-Djava.awt.headless=true"]
 )

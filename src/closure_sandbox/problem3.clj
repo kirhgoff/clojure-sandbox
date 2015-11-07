@@ -19,25 +19,26 @@
   (if (> value 0) (recur (inc i) (bit-shift-right value 1)) i)))
 
 ;; ferma method
-(defn ferma-divisors [jobs divisors]
+(defn ferma [jobs divisors]
   ;;(println (str "Running jobs=" jobs " divisors=" divisors))
   (if (empty? jobs) 
-    (println (str "Divisors are " (sort divisors)))
+    ;;(println (str "Divisors are " (sort divisors)))
+    (sort divisors)
     (do (def n (first jobs))
       (def m (math/floor (math/sqrt n)))
-      (println (str "Running n=" n ", m=" m))
+      ;;(println (str "Running n=" n ", m=" m))
       (if (is-prime? n) 
-        (ferma-divisors (rest jobs) (cons n divisors))
+        (ferma (rest jobs) (cons n divisors))
         (loop [x 1]
           (def q (- (math/expt (+ m x) 2) n)) ;;q(x) = (m + x)^2 - n
           (def sqrt-q (math/sqrt q))
-          (println (str "Iteration " x " q=" q " sqrt(q)=" sqrt-q))
+          ;;(println (str "Iteration " x " q=" q " sqrt(q)=" sqrt-q))
           (if (= (math/floor sqrt-q) sqrt-q) 
             (do (def mx (+ m x))
               (def div1 (int (+ mx sqrt-q)))
               (def div2 (int (- mx sqrt-q)))
-              (println (str "Found divisors " div1 " * " div2))
-              (ferma-divisors (concat [div1 div2] (rest jobs)) divisors)
+              ;;(println (str "Found divisors " div1 " * " div2))
+              (ferma (concat [div1 div2] (rest jobs)) divisors)
             )
             (recur (inc x)) 
           )
@@ -47,10 +48,8 @@
   )
 )
 
-(defn ferma-ex2 [target] target)
-
-(defn ferma-ex [target] 
-  (def simple-primes (primes-till (if (> target 100) 100 target)))
+(defn sieve [target] 
+  (def simple-primes (primes-till (if (> target 1000) 1000 target)))
   ;;(print (str simple-primes))
   (loop [value target divisors [] candidates simple-primes]
     (if (empty? candidates)
@@ -67,15 +66,24 @@
   )
 )
 
+(defn divisors-fermi [target]
+  (let [[head tail] (sieve target)]
+    ;;(println head)
+    ;;(println tail)
+    (ferma [head] tail)
+  )
+)
+
 ;;(defn solution [] (bits-count 600851475143))
 ;;(defn solution [] (max-divisor3 600851475143))
 ;;(defn solution [] (max-divisor3 100))
 
 ;;Found divisors: 1234169.0 * 486847.0
-;;(defn solution [] (ferma-divisors 600851475143))
+;;(defn solution [] (ferma 600851475143))
 ;;600851475143 = 1234169 * 486847 = 1471 * 839 * 6857 * 71
-;;(defn solution [] (ferma-divisors [998001] []))
-(defn solution3 [] (ferma-divisors [600851475143] []))
+;;(defn solution [] (ferma [998001] []))
+;;(defn solution3 [] (divisors-fermi 600851475143))
+;;(defn solution3 [] (divisors-fermi 332))
 
 
 

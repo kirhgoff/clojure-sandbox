@@ -39,5 +39,7 @@
   (is (= [2 3 5 7] (primes-till 9)))
   (is (= [2 3 5 7] (primes-till 10)))  
   (is (= [2 3 5 7 11 13 17 19] (primes-till 20)))
-  (is (= [] (ferma-ex 150)))
+  (is (= [10 [5 2]] (sieve 100)))
+  (is (= [3 3 37] (divisors-fermi 333)))
+  (is (= [1 2 3 113] (divisors-fermi 678)))
 )

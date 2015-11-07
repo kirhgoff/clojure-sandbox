@@ -19,8 +19,9 @@
   "Main function"
   [& args]
   ;;(problem1/multiples-of-3-and-5 999))
-  (solution3)
+  ;;(solution3)
   ;;(println (solution 2))
+  (solution4)
 )
 
 
